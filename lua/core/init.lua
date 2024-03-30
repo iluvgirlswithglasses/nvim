@@ -8,6 +8,19 @@ g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 g.toggle_theme_icon = "   "
 g.transparency = config.ui.transparency
 
+-------------------------------------- mystuff ------------------------------------------
+
+-- Indenting
+opt.autoindent = true
+opt.expandtab = false
+opt.tabstop = 4
+opt.shiftwidth = 4
+
+-- editor
+opt.wrap = false
+opt.list = true
+opt.scrolloff = 8
+
 -------------------------------------- options ------------------------------------------
 opt.laststatus = 3 -- global statusline
 opt.showmode = false
@@ -16,13 +29,13 @@ opt.clipboard = "unnamedplus"
 opt.cursorline = true
 
 -- Indenting
-opt.expandtab = true
-opt.shiftwidth = 2
-opt.smartindent = true
-opt.tabstop = 2
-opt.softtabstop = 2
+-- opt.expandtab = true
+-- opt.shiftwidth = 2
+-- opt.smartindent = true
+-- opt.tabstop = 2
+-- opt.softtabstop = 2
 
-opt.fillchars = { eob = " " }
+-- opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
 opt.mouse = "a"

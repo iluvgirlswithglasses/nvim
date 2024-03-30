@@ -13,8 +13,8 @@ local default_plugins = {
   },
 
   {
-    "NvChad/ui",
-    branch = "v2.0",
+    "iluvgirlswithglasses/nvim-ui",
+    branch = "main",
     lazy = false,
   },
 
