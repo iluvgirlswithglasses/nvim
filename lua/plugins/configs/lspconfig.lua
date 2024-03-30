@@ -40,7 +40,20 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
-require("lspconfig").lua_ls.setup {
+-- language servers setup
+local lspconfig = require "lspconfig"
+local servers = { "clangd" }
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_init = M.on_init,
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+  }
+end
+
+-- lua server setup
+lspconfig.lua_ls.setup {
   on_init = M.on_init,
   on_attach = M.on_attach,
   capabilities = M.capabilities,
