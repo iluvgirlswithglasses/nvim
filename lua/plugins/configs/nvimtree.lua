@@ -65,7 +65,7 @@ local options = {
           staged = "✓",
           unmerged = "",
           renamed = "➜",
-          untracked = "★",
+          untracked = "*",
           deleted = "",
           ignored = "◌",
         },
