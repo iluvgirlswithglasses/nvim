@@ -43,7 +43,6 @@ local default_plugins = {
       require("core.utils").load_mappings "nvterm"
     end,
     config = function(_, _)
-      require "base46.term"
       require("nvterm").setup({
         terminals = {
           shell = 'fish',
