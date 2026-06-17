@@ -31,6 +31,17 @@ o.splitbelow = true
 o.splitright = true
 
 -- behaviour
+vim.g.clipboard = {
+  name = "OSC 52",
+  copy = {
+    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+  },
+  paste = {
+    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
+    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+  },
+}
 o.clipboard = "unnamedplus"
 o.mouse = "a"
 o.scrolloff = 8
