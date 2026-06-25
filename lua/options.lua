@@ -30,6 +30,9 @@ o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
 
+-- path
+vim.opt.path:append "**"
+
 -- behaviour
 vim.g.clipboard = {
   name = "OSC 52",
