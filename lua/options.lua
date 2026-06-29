@@ -34,15 +34,27 @@ o.splitright = true
 vim.opt.path:append "**"
 
 -- behaviour
+local _osc52_copy = {
+  ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+  ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+}
+local _clip = { lines = { "" }, regtype = "v" }
+
 vim.g.clipboard = {
   name = "OSC 52",
   copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    ["+"] = function(lines, regtype)
+      _clip = { lines = lines, regtype = regtype }
+      _osc52_copy["+"](lines, regtype)
+    end,
+    ["*"] = function(lines, regtype)
+      _clip = { lines = lines, regtype = regtype }
+      _osc52_copy["*"](lines, regtype)
+    end,
   },
   paste = {
-    ["+"] = require("vim.ui.clipboard.osc52").paste("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").paste("*"),
+    ["+"] = function() return { _clip.lines, _clip.regtype } end,
+    ["*"] = function() return { _clip.lines, _clip.regtype } end,
   },
 }
 o.clipboard = "unnamedplus"
